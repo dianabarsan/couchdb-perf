@@ -20,6 +20,6 @@ sudo apt-get install -y nodejs
 
 #git clone https://github.com/dianabarsan/couchdb-perf.git
 #cd couchdb-perf
-#npm ci
+npm ci
 
 
