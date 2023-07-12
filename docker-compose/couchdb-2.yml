@@ -19,7 +19,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: ${NBR_CPU:-'2'}
+          cpus: ${NBR_CPU:-'12'}
 
 
 volumes:
