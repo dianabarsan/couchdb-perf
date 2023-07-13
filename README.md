@@ -6,6 +6,7 @@
 - create one database
 - create one ddoc with two views
 - write 500.000 (five hundred thousand) documents. These documents consist of one uuid as _id field and one static boolean property. Half of the documents will be indexed by one view, and the other half by the other. Record time it takes to write all documents.
+- index views and record time it took for views to return results
 - call _bulk_get with payloads of 100, 1000 and 10000 known vs unknown doc ids and record response time.
 - call _all_docs with payloads of 100, 1000 and 10000 known vs unknown doc ids, with and without include_docs, and record response time.
 - call one view with payloads of 100, 1000 and 10000 known vs unknown keys, with and without include_docs, and record response time.
