@@ -21,8 +21,11 @@ const request = {
 };
 
 export const createDb = async () => {
-  await request.put({ url }).catch();
-  await request.post({ url, body: constants.ddoc, json: true }).catch();
+  await request.put({ url });
+};
+
+export const createDdoc = async () => {
+  await request.post({ url, body: constants.ddoc, json: true });
 };
 
 export const recordPerf = async (description, start) => {
@@ -38,14 +41,14 @@ export const writeDocs = async (docs) => {
   });
 };
 
-export const indexView = async () => {
+export const indexViewRecursive = async () => {
   console.log('indexing views...');
   try {
     const viewName = Object.keys(constants.ddoc.views)[0];
     const viewUrl = `${constants.ddoc._id}/_view/${viewName}?limit=1`;
     return await request.get({ url: `${url}/${viewUrl}` });
   } catch (err) {
-    return await indexView();
+    return await indexViewRecursive();
   }
 };
 
@@ -106,3 +109,8 @@ export const changes = async (keys, includeDocs = false) => {
   });
 }
 
+export const indexView = async () => {
+  const beginIndexing = performance.now();
+  await indexViewRecursive();
+  await recordPerf('indexing docs', beginIndexing);
+};

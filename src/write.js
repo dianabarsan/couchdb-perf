@@ -27,7 +27,7 @@ export default async () => {
   }
   await recordPerf('writing docs', begin);
 
-  const beginIndexing = performance.now();
-  await indexView();
-  await recordPerf('indexing docs', beginIndexing);
+  // const beginIndexing = performance.now();
+  // await indexView();
+  // await recordPerf('indexing docs', beginIndexing);
 };
